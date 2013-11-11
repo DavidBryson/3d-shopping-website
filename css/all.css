@@ -1,0 +1,33 @@
+body {
+	background-color: #B8B8B8;
+	margin: 0px;
+	min-width: 50em;
+}
+header{
+	padding: 1em;
+	margin: 1em;
+	margin-right: 10em;
+	margin-left: 10em;
+	background-color: white;
+	height: 15em;
+}
+footer{
+	margin: 1em;
+	margin-right: 10em;
+	margin-left: 10em;
+	padding: 1em;
+	border-top: 1px solid black;
+}
+.topBar {
+	width: 100%;
+	padding: .25em;
+	height: 1.5em;
+	background-color: #3d3d3d;
+}
+.mainBody {
+	padding: 1em;
+	margin: 1em;
+	margin-right: 10em;
+	margin-left: 10em;
+	min-height: 15em;
+}
