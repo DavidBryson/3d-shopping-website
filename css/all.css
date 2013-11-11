@@ -8,8 +8,7 @@ header{
 	margin: 1em;
 	margin-right: 10em;
 	margin-left: 10em;
-	background-color: white;
-	height: 15em;
+	min-height: 15em;
 }
 footer{
 	margin: 1em;
@@ -30,4 +29,11 @@ footer{
 	margin-right: 10em;
 	margin-left: 10em;
 	min-height: 15em;
+}
+.logo_wrapper {
+	text-align: center;
+}
+.logo {
+	width: 330px;
+	height: 240px;
 }
