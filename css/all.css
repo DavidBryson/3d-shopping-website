@@ -3,25 +3,34 @@ body {
 	margin: 0px;
 	min-width: 50em;
 }
-header{
+header {
 	padding: 1em;
 	margin: 1em;
 	margin-right: 10em;
 	margin-left: 10em;
 	min-height: 15em;
+	text-align: center;
 }
-footer{
+footer {
 	margin: 1em;
 	margin-right: 10em;
 	margin-left: 10em;
 	padding: 1em;
-	border-top: 1px solid black;
+	border-top: 1px solid #3d3d3d;
 }
 .topBar {
 	width: 100%;
-	padding: .25em;
-	height: 1.5em;
+	padding: 0.25em;
 	background-color: #3d3d3d;
+}
+.searchWrapper {
+	margin-left: 15em;
+}
+.searchForm {
+	width:20em;
+}
+.search {
+	border-radius: .5em;
 }
 .mainBody {
 	padding: 1em;
@@ -30,10 +39,53 @@ footer{
 	margin-left: 10em;
 	min-height: 15em;
 }
-.logo_wrapper {
-	text-align: center;
-}
 .logo {
 	width: 330px;
 	height: 240px;
+	margin-bottom: 2em;
+}
+nav {
+	list-style-type: none;
+	text-align: center;
+	margin: 1em;
+}
+nav li {
+	display: inline;
+	height: 25px;
+	margin-right: 0px;
+	border-right: 1px solid #757575;
+	padding: 0 20px;
+}
+nav li:last-child {
+	border-right: none;
+}
+nav li a {
+	display: inline-block;
+	text-decoration: none;
+	color: #757575;
+	font: 25px/1 Helvetica, Verdana, sans-serif;
+	text-transform: uppercase;
+ 
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+nav li a:hover {
+	color: #3d3d3d;
+}
+.active a {
+	font-weight: bold;
+	color: #3d3d3d;
+}
+.topMenu {
+	list-style-type: none;
+	float: right;
+	display: inline;
+}
+.topMenu li a {
+	float: right;
+	margin-right: 5em;
+
 }

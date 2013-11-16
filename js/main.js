@@ -1,6 +1,6 @@
 require.config({
     paths: {
-        jquery: 'lib/jquery-1.10.2',
+        jquery: 'http://code.jquery.com/jquery-2.0.3.min',
         three: 'lib/three'
     },
     shim: {
