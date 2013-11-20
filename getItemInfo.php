@@ -5,7 +5,7 @@
 	$row = mysqli_fetch_array($raw_results);
 	echo "
 		<h2>$row[Name]</h2>
-		<p>$row[Desc]</p>
+		<p>$row[Description]</p>
 		<p class='price'>£$row[Price]</p>
 		";
 ?>
