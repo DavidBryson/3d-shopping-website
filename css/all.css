@@ -2,6 +2,7 @@ body {
 	background-color: #B8B8B8;
 	margin: 0px;
 	min-width: 50em;
+	font-family: Helvetica;
 }
 header {
 	padding: 1em;
@@ -83,9 +84,16 @@ nav li a:hover {
 	list-style-type: none;
 	float: right;
 	display: inline;
+	margin: 0px;
 }
-.topMenu li a {
+.topMenu li {
 	float: right;
 	margin-right: 5em;
-
+}
+.topMenu a {
+	display: inline-block;
+	text-decoration: none;
+	color: #B8B8B8;
+	font: 15px/1 Helvetica, Verdana, sans-serif;
+	text-transform: uppercase;
 }

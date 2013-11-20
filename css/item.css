@@ -1,0 +1,18 @@
+.item_Pic{
+	float: left;
+	width: 30%;
+	min-width: 200px;
+	text-align: center;
+}
+.item_Pic img {
+	height: 200px;
+	width: 200px;
+}
+#description {
+	float: right;
+	width: 65%;
+}
+.price{
+	font-weight: bold;
+	font-size: 1em;
+}
