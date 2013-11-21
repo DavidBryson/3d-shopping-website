@@ -3,7 +3,7 @@ define(['jquery'], function ($) {
 		$.ajax({
 			type: "GET",
 			dataType: "text",
-			url: "has3D.php?ID="+ID,
+			url: "../has3D.php?ID="+ID,
 			async: true,
 			success: function (text) {
 				document.getElementById("has3D").innerHTML=text;

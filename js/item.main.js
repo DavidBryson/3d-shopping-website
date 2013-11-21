@@ -9,7 +9,8 @@ require.config({
         }
     }
 });
-require(['src/loadItem', 'src/itemHas3D'], function(loadItem, itemHas3D) {
-	loadItem(1);
-    itemHas3D(1);
+require(['src/itemHas3D'], function(itemHas3D) {
+    var url = window.location.pathname;
+    var ID = url.substring(url.lastIndexOf('/')+1, url.lastIndexOf('.'));
+    itemHas3D(ID);
 })
