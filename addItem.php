@@ -6,20 +6,44 @@
 	$Stock = $_POST["Stock"];
 	$Hidden = $_POST["Hidden"];
 	$has3DModel = $_POST["has3DModel"];
-	$date = date('y-m-d');
+	$date = date("y-m-d");
 	$insert = "INSERT INTO items (Name, Description, Price, Stock, Hidden, has3DModel, DateAdded)
 		VALUES('$Name','$Desc','$Price','$Stock','$Hidden','$has3DModel','$date')";
 	if(!mysqli_query($con, $insert)){
-		die('Error:' . mysqli_error($con));
-	}
+		die("Error:" . mysqli_error($con));
+	}else{
 
-	$ID = mysqli_insert_id($con);
-	echo $ID;
+		$ID = mysqli_insert_id($con);
+		echo "<p>$ID</p>";
 
-	$my_file = "items/$ID.html";
-	$handle = fopen($my_file, "w") or die('Cannot open file: ' . $my_file);
+		$allowedExts = array("gif", "jpeg", "jpg", "png");
+		$temp = explode(".", $_FILES["userfile"]["name"]);
+		$extension = end($temp);
 
-	fwrite($handle, "<!DOCTYPE html>
+		if ((($extension == "gif")
+		|| ($extension == "jpeg")
+		|| ($extension == "jpg")
+		|| ($extension == "pjpeg")
+		|| ($extension == "x-png")
+		|| ($extension == "png"))
+		&& ($_FILES["userfile"]["size"] < 3000000)){
+
+			$uploaddir = "itemData/";
+			//$uploadfile = $uploaddir . basename($_FILES["userfile"]["name"]);
+			if (move_uploaded_file($_FILES["userfile"]["tmp_name"], $uploaddir . $ID . "." . $extension)) {
+			    echo "Image is valid, and was successfully uploaded.\n";
+			} else {
+			    echo "error: " . $_FILES["userfile"]["error"] . "\n";
+			    print_r($_FILES);
+			}
+		}else{
+			echo "file type incorrect\n";
+		}
+
+		$my_file = "items/$ID.html";
+		$handle = fopen($my_file, "w") or die("Cannot open file: " . $my_file);
+
+		fwrite($handle, "<!DOCTYPE html>
 <html>
     <head>
         <meta charset='utf-8'>
@@ -57,7 +81,7 @@
 				<p class='price'>£$Price</p>
 			</div>
 			<div class='item_Pic'>
-				<img src='../itemData/$ID.jpg' alt=''>
+				<img src='../itemData/$ID.$extension' alt=''>
 				<div id='has3D'></div>
 			</div>
 		</section>
@@ -66,8 +90,9 @@
 	</body>
 </html>");
 
-	fclose($handle);
+		fclose($handle);
 
-	echo "<p>File created.</p>
-	<p>Link to file page: <a href='items/$ID.html'>Here</a></p>"
+		echo "<p>Item page created.</p>
+		<p>Link to item page: <a href='items/$ID.html'>Here</a></p>";
+	}
 ?>

@@ -1,0 +1,13 @@
+#mainBody{
+	overflow: auto;
+}
+.mainThumbnails{
+	list-style-type: none;
+}
+.mainThumbnails li img{
+	float: left;
+	margin: 10px;
+	border: 5px solid black;
+	height: 200px;
+	width: 200px;
+}

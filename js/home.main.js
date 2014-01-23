@@ -9,6 +9,6 @@ require.config({
         }
     }
 });
-require(['jquery', 'three'], function(jquery, three) {
-	
+require(['src/loadItems'], function(loadItems) {
+	loadItems(9);
 })

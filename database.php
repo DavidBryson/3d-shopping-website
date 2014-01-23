@@ -3,28 +3,24 @@
     <head>
         <meta charset="utf-8">
         <title>Database Page</title>
-        <script type="text/javascript">
-        	addItem = function () {
-        		
-        	}
-        </script>
     </head>
 	<body>
-		<form action="addItem.php" method="post">
-			<label for="Name">Name: <input type="text" name="Name" id="Name"></label>
-			<label for="Desc">Description: <input type="text" name="Desc" id="Desc"></label>
-			<label for="Price">Price: <input type="Number" name="Price" id="Price" step="0.01" min="0"></label>
-			<label for="Stock">Stock: <input type="Number" name="Stock" id="Stock" step="1" min="0"></label>
-			<label for="Hidden">Hidden: <select name="Hidden" id="Hidden">
+		<form enctype="multipart/form-data" action="addItem.php" method="post">
+			<p><label for="Name">Name: </label><input type="text" name="Name" id="Name"></p>
+			<p><label for="Desc">Description: </label><input type="text" name="Desc" id="Desc"></p>
+			<p><label for="Price">Price: </label><input type="Number" name="Price" id="Price" step="0.01" min="0"></p>
+			<p><label for="Stock">Stock: </label><input type="Number" name="Stock" id="Stock" step="1" min="0"></p>
+			<p><label for="Hidden">Hidden: </label><select name="Hidden" id="Hidden">
 					<option value='n'>No</option>
 					<option value='y'>Yes</option>
-				</select>
-			</label>
-			<label for="has3DModel">has3DModel: <select name="has3DModel" id="has3DModel">
+				</select></p>
+			<!-- MAX_FILE_SIZE must precede the file input field -->
+    		<p>
+			<label for="userfile">Upload Image File: </label><input type="hidden" name="MAX_FILE_SIZE" value="3000000"><input name="userfile" type="file"></p>
+			<p><label for="has3DModel">has3DModel: </label><select name="has3DModel" id="has3DModel">
 					<option value='n'>No</option>
 					<option value='y'>Yes</option>
-				</select>
-			</label>
+				</select></p>
 			<input type="submit" value="Submit">
 		</form>
 		<?php
