@@ -9,7 +9,7 @@ require.config({
         }
     }
 });
-require(['src/arm', 'three'], function(arm, THREE) {
+require(['src/arm', 'src/chest', 'src/rotateScene', 'three'], function(arm, chest, rotate, THREE) {
     var width = window.innerWidth*0.75;
     var height = window.innerHeight * 0.75;
 
@@ -20,9 +20,16 @@ require(['src/arm', 'three'], function(arm, THREE) {
     renderer.setSize( width, height );
     document.body.appendChild( renderer.domElement );
 
+
+
     var body = [];
 
-    arm({length: 30, side: 'left', scene: scene, body: body});
+    arm({side: 'right', scene: scene, body: body});
+
+    arm({side: 'left', scene: scene, body: body});
+
+    chest({scene: scene, body: body});
+
 
     camera.position.z = 50;
 
@@ -33,8 +40,18 @@ require(['src/arm', 'three'], function(arm, THREE) {
     render();
 
     document.getElementById('armInput').onchange = function (data) {
-        var rArm = body['rArm'];
+        var rArm = body['rightArm'];
+        var lArm = body['leftArm'];
         rArm.scale.y = document.getElementById('armInput').value;
+        lArm.scale.y = document.getElementById('armInput').value;
+    }
+
+    document.getElementById('rotateLeft').onclick = function (data) {
+        rotate({direction: 'left', scene: scene, camera: camera});
+    }
+
+    document.getElementById('rotateRight').onclick = function (data) {
+        rotate({direction: 'right', scene: scene, camera: camera});
     }
 
     

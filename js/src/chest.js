@@ -4,16 +4,11 @@ define([''], function () {
 
 		var mesh;
 
-		loader.load("body/"+ param.side + "Arm.js", function (geo) {
+		loader.load("body/chest.js", function (geo) {
 			mesh = new THREE.Mesh( geo, new THREE.MeshNormalMaterial() );
 			//mesh.scale.set(5, 5, 5);
-			if(param.side == 'left'){
-				mesh.position.x = 10;
-			}else{
-				mesh.position.x = -10;
-			}
 			mesh.position.y = 10;
-			mesh.id = param.side + "Arm"
+			mesh.id = "chest"
 			param.body[mesh.id] = mesh;
 			//console.log(mesh);
 			param.scene.add(mesh);
