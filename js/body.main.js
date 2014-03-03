@@ -9,9 +9,9 @@ require.config({
         }
     }
 });
-require(['src/arm', 'src/chest', 'src/rotateScene', 'three'], function(arm, chest, rotate, THREE) {
-    var width = window.innerWidth*0.75;
-    var height = window.innerHeight * 0.75;
+require(['src/arm', 'src/chest', 'src/rotateScene', 'src/zoom', 'three'], function(arm, chest, rotate, zoom, THREE) {
+    var width = window.innerWidth*0.5;
+    var height = window.innerHeight * 0.5;
 
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera( 75, width / height, 0.1, 1000 );
@@ -19,6 +19,9 @@ require(['src/arm', 'src/chest', 'src/rotateScene', 'three'], function(arm, ches
     var renderer = new THREE.WebGLRenderer();
     renderer.setSize( width, height );
     document.body.appendChild( renderer.domElement );
+
+    var cube = new THREE.Mesh( new THREE.CubeGeometry( 1, 1, 1 ), new THREE.MeshNormalMaterial() );
+    scene.add(cube);
 
 
 
@@ -31,7 +34,7 @@ require(['src/arm', 'src/chest', 'src/rotateScene', 'three'], function(arm, ches
     chest({scene: scene, body: body});
 
 
-    camera.position.z = 50;
+    camera.position.z = 20;
 
     function render() {
         requestAnimationFrame(render);
@@ -54,5 +57,12 @@ require(['src/arm', 'src/chest', 'src/rotateScene', 'three'], function(arm, ches
         rotate({direction: 'right', scene: scene, camera: camera});
     }
 
+    document.getElementById('zoomIn').onclick = function (data) {
+        zoom({action: 'in', scene: scene, camera: camera});
+    }
+
+    document.getElementById('zoomOut').onclick = function (data) {
+        zoom({action: 'out', scene: scene, camera: camera});
+    }
     
 })

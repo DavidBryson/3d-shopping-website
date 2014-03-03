@@ -1,9 +1,14 @@
 .bodyForm{
 	float: right;
-	width: 25%;
+	width: 50%;
 	background-color: grey;
 }
+.inputBox{
+	float: right;
+	width: 10%;
+	maxlength: '2';
+}
 canvas { 
-	width: 75%;
-	height: 75%;
+	width: 50%;
+	height: 50%;
 }

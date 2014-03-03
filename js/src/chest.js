@@ -7,7 +7,7 @@ define([''], function () {
 		loader.load("body/chest.js", function (geo) {
 			mesh = new THREE.Mesh( geo, new THREE.MeshNormalMaterial() );
 			//mesh.scale.set(5, 5, 5);
-			mesh.position.y = 10;
+			//mesh.position.y = 10;
 			mesh.id = "chest"
 			param.body[mesh.id] = mesh;
 			//console.log(mesh);
